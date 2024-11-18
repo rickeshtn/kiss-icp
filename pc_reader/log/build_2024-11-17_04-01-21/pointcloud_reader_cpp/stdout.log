@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target pointcloud_subscriber[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/pointcloud_subscriber.dir/src/pointcloud_subscriber.cpp.o[0m
+[100%] [32m[1mLinking CXX executable pointcloud_subscriber[0m
+[100%] Built target pointcloud_subscriber
+-- Install configuration: ""
+-- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber
+-- Set runtime path of "/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber" to ""
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/package_run_dependencies/pointcloud_reader_cpp
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/parent_prefix_path/pointcloud_reader_cpp
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.sh
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.dsv
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.sh
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.dsv
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.bash
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.sh
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.zsh
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.dsv
+-- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.dsv
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/packages/pointcloud_reader_cpp
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig.cmake
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig-version.cmake
+-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.xml

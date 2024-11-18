@@ -1,0 +1,129 @@
+[0.000000] (-) TimerEvent: {}
+[0.000345] (pointcloud_reader_cpp) JobQueued: {'identifier': 'pointcloud_reader_cpp', 'dependencies': OrderedDict()}
+[0.000617] (pointcloud_reader_cpp) JobStarted: {'identifier': 'pointcloud_reader_cpp'}
+[0.007700] (pointcloud_reader_cpp) JobProgress: {'identifier': 'pointcloud_reader_cpp', 'progress': 'cmake'}
+[0.007937] (pointcloud_reader_cpp) Command: {'cmd': ['/usr/bin/cmake', '/HOST_HOME/Projects/sensmore/pc_reader/src/pointcloud_reader_cpp', '-DCMAKE_INSTALL_PREFIX=/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp'], 'cwd': '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp', 'env': OrderedDict([('HOSTNAME', 'd63d3737ead4'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS', '1'), ('HOME', '/root'), ('OLDPWD', '/HOST_HOME/Projects/sensmore'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/opt/ros/humble'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', ''), ('PWD', '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp'), ('PYTHONPATH', '/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099870] (-) TimerEvent: {}
+[0.103886] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.181965] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.190459] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199941] (-) TimerEvent: {}
+[0.252196] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.257259] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.257851] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.258291] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.261025] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.300037] (-) TimerEvent: {}
+[0.332012] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.338526] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.338812] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.339239] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.346709] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.400114] (-) TimerEvent: {}
+[0.480762] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.500193] (-) TimerEvent: {}
+[0.568032] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.600259] (-) TimerEvent: {}
+[0.615248] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.620684] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.629388] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.643310] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.659440] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.700343] (-) TimerEvent: {}
+[0.706278] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.709225] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.800442] (-) TimerEvent: {}
+[0.803954] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.829611] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.868364] (pointcloud_reader_cpp) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.878302] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.900514] (-) TimerEvent: {}
+[0.948644] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.948988] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.000613] (-) TimerEvent: {}
+[1.015295] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.016305] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.066938] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.096395] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)\n'}
+[1.100667] (-) TimerEvent: {}
+[1.133236] (pointcloud_reader_cpp) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[1.143878] (pointcloud_reader_cpp) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[1.172592] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[1.172754] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[1.200754] (-) TimerEvent: {}
+[1.211087] (pointcloud_reader_cpp) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[1.222671] (pointcloud_reader_cpp) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[1.256932] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  \n'}
+[1.257065] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)\n'}
+[1.300825] (-) TimerEvent: {}
+[1.401038] (-) TimerEvent: {}
+[1.501291] (-) TimerEvent: {}
+[1.601553] (-) TimerEvent: {}
+[1.701815] (-) TimerEvent: {}
+[1.802086] (-) TimerEvent: {}
+[1.902348] (-) TimerEvent: {}
+[2.002612] (-) TimerEvent: {}
+[2.102861] (-) TimerEvent: {}
+[2.121088] (pointcloud_reader_cpp) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[2.132885] (pointcloud_reader_cpp) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[2.163109] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[2.164508] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.202930] (-) TimerEvent: {}
+[2.213349] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[2.303015] (-) TimerEvent: {}
+[2.333226] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[2.338162] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.343555] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[2.403095] (-) TimerEvent: {}
+[2.457439] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[2.503177] (-) TimerEvent: {}
+[2.572458] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.603260] (-) TimerEvent: {}
+[2.683805] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[2.684357] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  \n'}
+[2.684916] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[2.685456] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  \n'}
+[2.686038] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[2.686605] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  \n'}
+[2.686903] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.12  \n'}
+[2.687160] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.12  \n'}
+[2.687680] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[2.688269] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  \n'}
+[2.688819] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  \n'}
+[2.689358] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  \n'}
+[2.690129] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  \n'}
+[2.690741] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  \n'}
+[2.691325] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  \n'}
+[2.691926] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  \n'}
+[2.692518] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  \n'}
+[2.693095] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  \n'}
+[2.693728] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  \n'}
+[2.694377] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  \n'}
+[2.694952] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  \n'}
+[2.695205] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.12  \n'}
+[2.695947] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  \n'}
+[2.696490] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  \n'}
+[2.697091] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  \n'}
+[2.703320] (-) TimerEvent: {}
+[2.710325] (pointcloud_reader_cpp) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:14 (find_package):\n'}
+[2.710468] (pointcloud_reader_cpp) StderrLine: {'line': b'  By not providing "Findpcl_ros.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[2.710559] (pointcloud_reader_cpp) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "pcl_ros", but\n'}
+[2.710644] (pointcloud_reader_cpp) StderrLine: {'line': b'  CMake did not find one.\n'}
+[2.710727] (pointcloud_reader_cpp) StderrLine: {'line': b'\n'}
+[2.710806] (pointcloud_reader_cpp) StderrLine: {'line': b'  Could not find a package configuration file provided by "pcl_ros" with any\n'}
+[2.710885] (pointcloud_reader_cpp) StderrLine: {'line': b'  of the following names:\n'}
+[2.710964] (pointcloud_reader_cpp) StderrLine: {'line': b'\n'}
+[2.711043] (pointcloud_reader_cpp) StderrLine: {'line': b'    pcl_rosConfig.cmake\n'}
+[2.711121] (pointcloud_reader_cpp) StderrLine: {'line': b'    pcl_ros-config.cmake\n'}
+[2.711198] (pointcloud_reader_cpp) StderrLine: {'line': b'\n'}
+[2.711274] (pointcloud_reader_cpp) StderrLine: {'line': b'  Add the installation prefix of "pcl_ros" to CMAKE_PREFIX_PATH or set\n'}
+[2.711350] (pointcloud_reader_cpp) StderrLine: {'line': b'  "pcl_ros_DIR" to a directory containing one of the above files.  If\n'}
+[2.711428] (pointcloud_reader_cpp) StderrLine: {'line': b'  "pcl_ros" provides a separate development package or SDK, be sure it has\n'}
+[2.711505] (pointcloud_reader_cpp) StderrLine: {'line': b'  been installed.\n'}
+[2.711577] (pointcloud_reader_cpp) StderrLine: {'line': b'\n'}
+[2.711638] (pointcloud_reader_cpp) StderrLine: {'line': b'\x1b[0m\n'}
+[2.711698] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[2.711762] (pointcloud_reader_cpp) StdoutLine: {'line': b'See also "/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp/CMakeFiles/CMakeOutput.log".\n'}
+[2.723383] (pointcloud_reader_cpp) CommandEnded: {'returncode': 1}
+[2.744929] (pointcloud_reader_cpp) JobEnded: {'identifier': 'pointcloud_reader_cpp', 'rc': 1}
+[2.755249] (-) EventReactorShutdown: {}

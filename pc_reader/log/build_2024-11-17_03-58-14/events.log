@@ -1,0 +1,125 @@
+[0.000000] (-) TimerEvent: {}
+[0.000235] (pointcloud_reader_cpp) JobQueued: {'identifier': 'pointcloud_reader_cpp', 'dependencies': OrderedDict()}
+[0.000425] (pointcloud_reader_cpp) JobStarted: {'identifier': 'pointcloud_reader_cpp'}
+[0.008544] (pointcloud_reader_cpp) JobProgress: {'identifier': 'pointcloud_reader_cpp', 'progress': 'cmake'}
+[0.009282] (pointcloud_reader_cpp) JobProgress: {'identifier': 'pointcloud_reader_cpp', 'progress': 'build'}
+[0.009966] (pointcloud_reader_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp', '--', '-j16', '-l16'], 'cwd': '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp', 'env': OrderedDict([('HOSTNAME', 'd63d3737ead4'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS', '1'), ('HOME', '/root'), ('OLDPWD', '/HOST_HOME/Projects/sensmore/pc_reader/install'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/HOST_HOME/Projects/sensmore/pc_reader/install:/opt/ros/humble'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp:/opt/ros/humble'), ('DEBIAN_FRONTEND', ''), ('PWD', '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp'), ('PYTHONPATH', '/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp:/opt/ros/humble')]), 'shell': False}
+[0.054831] (pointcloud_reader_cpp) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target pointcloud_subscriber\x1b[0m\n'}
+[0.087132] (pointcloud_reader_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/pointcloud_subscriber.dir/src/pointcloud_subscriber.cpp.o\x1b[0m\n'}
+[0.099828] (-) TimerEvent: {}
+[0.200037] (-) TimerEvent: {}
+[0.300313] (-) TimerEvent: {}
+[0.400661] (-) TimerEvent: {}
+[0.500943] (-) TimerEvent: {}
+[0.601217] (-) TimerEvent: {}
+[0.701534] (-) TimerEvent: {}
+[0.801786] (-) TimerEvent: {}
+[0.902043] (-) TimerEvent: {}
+[1.002300] (-) TimerEvent: {}
+[1.102546] (-) TimerEvent: {}
+[1.202778] (-) TimerEvent: {}
+[1.302986] (-) TimerEvent: {}
+[1.403232] (-) TimerEvent: {}
+[1.503462] (-) TimerEvent: {}
+[1.603726] (-) TimerEvent: {}
+[1.704008] (-) TimerEvent: {}
+[1.804285] (-) TimerEvent: {}
+[1.904557] (-) TimerEvent: {}
+[2.004831] (-) TimerEvent: {}
+[2.105092] (-) TimerEvent: {}
+[2.205364] (-) TimerEvent: {}
+[2.305641] (-) TimerEvent: {}
+[2.405920] (-) TimerEvent: {}
+[2.506202] (-) TimerEvent: {}
+[2.606486] (-) TimerEvent: {}
+[2.706769] (-) TimerEvent: {}
+[2.807046] (-) TimerEvent: {}
+[2.907320] (-) TimerEvent: {}
+[3.007603] (-) TimerEvent: {}
+[3.107899] (-) TimerEvent: {}
+[3.208169] (-) TimerEvent: {}
+[3.308444] (-) TimerEvent: {}
+[3.408727] (-) TimerEvent: {}
+[3.508992] (-) TimerEvent: {}
+[3.609273] (-) TimerEvent: {}
+[3.709548] (-) TimerEvent: {}
+[3.810070] (-) TimerEvent: {}
+[3.910362] (-) TimerEvent: {}
+[4.010689] (-) TimerEvent: {}
+[4.111113] (-) TimerEvent: {}
+[4.211386] (-) TimerEvent: {}
+[4.311662] (-) TimerEvent: {}
+[4.411931] (-) TimerEvent: {}
+[4.512190] (-) TimerEvent: {}
+[4.612450] (-) TimerEvent: {}
+[4.713069] (-) TimerEvent: {}
+[4.813360] (-) TimerEvent: {}
+[4.913631] (-) TimerEvent: {}
+[5.013905] (-) TimerEvent: {}
+[5.114192] (-) TimerEvent: {}
+[5.214472] (-) TimerEvent: {}
+[5.314753] (-) TimerEvent: {}
+[5.415003] (-) TimerEvent: {}
+[5.515277] (-) TimerEvent: {}
+[5.615554] (-) TimerEvent: {}
+[5.715824] (-) TimerEvent: {}
+[5.816091] (-) TimerEvent: {}
+[5.916357] (-) TimerEvent: {}
+[6.016628] (-) TimerEvent: {}
+[6.116883] (-) TimerEvent: {}
+[6.217137] (-) TimerEvent: {}
+[6.317392] (-) TimerEvent: {}
+[6.417646] (-) TimerEvent: {}
+[6.517896] (-) TimerEvent: {}
+[6.618153] (-) TimerEvent: {}
+[6.718403] (-) TimerEvent: {}
+[6.818659] (-) TimerEvent: {}
+[6.918910] (-) TimerEvent: {}
+[7.019176] (-) TimerEvent: {}
+[7.119428] (-) TimerEvent: {}
+[7.219676] (-) TimerEvent: {}
+[7.319928] (-) TimerEvent: {}
+[7.420185] (-) TimerEvent: {}
+[7.520436] (-) TimerEvent: {}
+[7.620685] (-) TimerEvent: {}
+[7.720927] (-) TimerEvent: {}
+[7.821183] (-) TimerEvent: {}
+[7.921438] (-) TimerEvent: {}
+[8.021706] (-) TimerEvent: {}
+[8.121985] (-) TimerEvent: {}
+[8.222268] (-) TimerEvent: {}
+[8.322546] (-) TimerEvent: {}
+[8.403431] (pointcloud_reader_cpp) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable pointcloud_subscriber\x1b[0m\n'}
+[8.422646] (-) TimerEvent: {}
+[8.522919] (-) TimerEvent: {}
+[8.623217] (-) TimerEvent: {}
+[8.723505] (-) TimerEvent: {}
+[8.823782] (-) TimerEvent: {}
+[8.924087] (-) TimerEvent: {}
+[9.024359] (-) TimerEvent: {}
+[9.046623] (pointcloud_reader_cpp) StdoutLine: {'line': b'[100%] Built target pointcloud_subscriber\n'}
+[9.059019] (pointcloud_reader_cpp) CommandEnded: {'returncode': 0}
+[9.084515] (pointcloud_reader_cpp) JobProgress: {'identifier': 'pointcloud_reader_cpp', 'progress': 'install'}
+[9.093077] (pointcloud_reader_cpp) Command: {'cmd': ['/usr/bin/cmake', '--install', '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp'], 'cwd': '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp', 'env': OrderedDict([('HOSTNAME', 'd63d3737ead4'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS', '1'), ('HOME', '/root'), ('OLDPWD', '/HOST_HOME/Projects/sensmore/pc_reader/install'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/HOST_HOME/Projects/sensmore/pc_reader/install:/opt/ros/humble'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp:/opt/ros/humble'), ('DEBIAN_FRONTEND', ''), ('PWD', '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp'), ('PYTHONPATH', '/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp:/opt/ros/humble')]), 'shell': False}
+[9.101317] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.101614] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber\n'}
+[9.110323] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Set runtime path of "/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber" to ""\n'}
+[9.110457] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/package_run_dependencies/pointcloud_reader_cpp\n'}
+[9.110565] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/parent_prefix_path/pointcloud_reader_cpp\n'}
+[9.110666] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.sh\n'}
+[9.110765] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.dsv\n'}
+[9.110856] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.sh\n'}
+[9.110934] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.dsv\n'}
+[9.111050] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.bash\n'}
+[9.111144] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.sh\n'}
+[9.111252] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.zsh\n'}
+[9.111322] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.dsv\n'}
+[9.111388] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.dsv\n'}
+[9.111465] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/packages/pointcloud_reader_cpp\n'}
+[9.111532] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig.cmake\n'}
+[9.111595] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig-version.cmake\n'}
+[9.111660] (pointcloud_reader_cpp) StdoutLine: {'line': b'-- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.xml\n'}
+[9.112643] (pointcloud_reader_cpp) CommandEnded: {'returncode': 0}
+[9.126179] (-) TimerEvent: {}
+[9.163403] (pointcloud_reader_cpp) JobEnded: {'identifier': 'pointcloud_reader_cpp', 'rc': 0}
+[9.164092] (-) EventReactorShutdown: {}

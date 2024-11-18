@@ -1,0 +1,23 @@
+[0.011s] Invoking command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp -- -j16 -l16
+[0.054s] [35m[1mConsolidate compiler generated dependencies of target pointcloud_subscriber[0m
+[0.089s] [100%] Built target pointcloud_subscriber
+[0.099s] Invoked command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp -- -j16 -l16
+[0.130s] Invoking command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp
+[0.137s] -- Install configuration: ""
+[0.137s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber
+[0.137s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/package_run_dependencies/pointcloud_reader_cpp
+[0.137s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/parent_prefix_path/pointcloud_reader_cpp
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.sh
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.dsv
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.sh
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.dsv
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.bash
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.sh
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.zsh
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.dsv
+[0.138s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.dsv
+[0.138s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/packages/pointcloud_reader_cpp
+[0.139s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig.cmake
+[0.139s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig-version.cmake
+[0.139s] -- Up-to-date: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.xml
+[0.141s] Invoked command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp

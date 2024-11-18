@@ -1,0 +1,67 @@
+[0.009s] Invoking command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /HOST_HOME/Projects/sensmore/pc_reader/src/pointcloud_reader_cpp -DCMAKE_INSTALL_PREFIX=/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp
+[0.024s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.128s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.152s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.153s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.158s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.165s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.175s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.200s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.201s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.295s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.333s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.360s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[0.386s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[0.412s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[0.682s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[0.686s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[0.810s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[0.816s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[0.823s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[0.933s] -- Found Qhull version 8.0.2
+[1.051s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.165s] -- Found pcl_ros: 2.4.5 (/opt/ros/humble/share/pcl_ros/cmake)
+[1.200s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.201s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.201s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.282s] [33mCMake Warning (dev) at CMakeLists.txt:15 (find_package):
+[1.282s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[1.282s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[1.282s]   command to set the policy and suppress this warning.
+[1.283s] 
+[1.283s]   CMake variable PCL_ROOT is set to:
+[1.283s] 
+[1.283s]     /usr
+[1.283s] 
+[1.283s]   For compatibility, CMake is ignoring the variable.
+[1.283s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.283s] [0m
+[1.350s] -- Configuring done
+[1.432s] -- Generating done
+[1.435s] -- Build files have been written to: /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp
+[1.448s] Invoked command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /HOST_HOME/Projects/sensmore/pc_reader/src/pointcloud_reader_cpp -DCMAKE_INSTALL_PREFIX=/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp
+[1.451s] Invoking command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp -- -j16 -l16
+[1.506s] [ 50%] [32mBuilding CXX object CMakeFiles/pointcloud_subscriber.dir/src/pointcloud_subscriber.cpp.o[0m
+[9.825s] [100%] [32m[1mLinking CXX executable pointcloud_subscriber[0m
+[10.421s] [100%] Built target pointcloud_subscriber
+[10.430s] Invoked command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp -- -j16 -l16
+[10.460s] Invoking command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp
+[10.465s] -- Install configuration: ""
+[10.465s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber
+[10.469s] -- Set runtime path of "/HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/lib/pointcloud_reader_cpp/pointcloud_subscriber" to ""
+[10.469s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/package_run_dependencies/pointcloud_reader_cpp
+[10.470s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/parent_prefix_path/pointcloud_reader_cpp
+[10.470s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.sh
+[10.470s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/ament_prefix_path.dsv
+[10.470s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.sh
+[10.470s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/environment/path.dsv
+[10.471s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.bash
+[10.471s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.sh
+[10.471s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.zsh
+[10.471s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/local_setup.dsv
+[10.471s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.dsv
+[10.471s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/ament_index/resource_index/packages/pointcloud_reader_cpp
+[10.472s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig.cmake
+[10.472s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/cmake/pointcloud_reader_cppConfig-version.cmake
+[10.472s] -- Installing: /HOST_HOME/Projects/sensmore/pc_reader/install/pointcloud_reader_cpp/share/pointcloud_reader_cpp/package.xml
+[10.474s] Invoked command in '/HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /HOST_HOME/Projects/sensmore/pc_reader/build/pointcloud_reader_cpp
