@@ -1,18 +1,12 @@
-// pointcloud_subscriber.cpp
-
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
-#include <sensor_msgs/PointCloud2.h>  // ROS1 header
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
-#include <ros/ros.h>  // ROS1 core
-#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <filesystem>
-#include <string>
-
-namespace fs = std::filesystem;
 
 class PointCloudSubscriber : public rclcpp::Node
 {
@@ -20,19 +14,20 @@ public:
     PointCloudSubscriber()
     : Node("pointcloud_subscriber"), count_(0)
     {
-        // ROS 1 initialization
-        ros::init(argc_, argv_, "ros1_pointcloud_publisher");
-        ros::NodeHandle nh;
+        // Ensure that the directory exists for saving point clouds and the index file
+        std::string save_dir = "/tmp/pointclouds";
+        if (!std::filesystem::exists(save_dir)) {
+            if (!std::filesystem::create_directory(save_dir)) {
+                RCLCPP_ERROR(this->get_logger(), "Failed to create directory for saving point clouds.");
+                return;
+            }
+        }
 
-        // ROS 1 Publisher (to publish PointCloud2)
-        ros1_pub_ = nh.advertise<sensor_msgs::PointCloud2>("/ros1/pointcloud", 10);
-
-        // Directory to save PCD files
-        save_dir_ = "/HOST_HOME/Projects/berlin_company_data/pointclouds/"; // Change this to match your mounted directory
-        if (!fs::exists(save_dir_))
-        {
-            fs::create_directories(save_dir_);
-            RCLCPP_INFO(this->get_logger(), "Created directory: %s", save_dir_.c_str());
+        // Initialize index file
+        index_file_.open(save_dir + "/pointcloud_index.txt", std::ios::out | std::ios::app); // Open for append mode
+        if (!index_file_.is_open()) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to open index file for writing.");
+            return;
         }
 
         // Subscriber to the PointCloud2 topic
@@ -45,53 +40,65 @@ public:
         RCLCPP_INFO(this->get_logger(), "PointCloudSubscriber node has been started.");
     }
 
+    ~PointCloudSubscriber() {
+        if (index_file_.is_open()) {
+            index_file_.close(); // Close the index file when the node is shut down
+        }
+    }
+
 private:
     void topic_callback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
     {
-        // Convert ROS 2 PointCloud2 message to PCL PointCloud
+        // Ensure the timestamp is valid
+        if (msg->header.stamp.sec == 0 && msg->header.stamp.nanosec == 0) {
+            RCLCPP_WARN(this->get_logger(), "Received PointCloud with missing timestamp. Skipping.");
+            return;  // Skip processing if timestamp is missing
+        }
+
+        // Convert ROS PointCloud2 message to PCL PointCloud
         pcl::PointCloud<pcl::PointXYZ> pcl_cloud;
         pcl::fromROSMsg(*msg, pcl_cloud);
 
         RCLCPP_INFO(this->get_logger(), "Received PointCloud with %zu points.", pcl_cloud.points.size());
 
-        // Save PointCloud to disk as PCD file
-        if (!pcl_cloud.points.empty())
-        {
-            // Create a filename using the count variable
-            std::string filename = save_dir_ + "pointcloud_" + std::to_string(count_) + ".pcd";
-            pcl::io::savePCDFileASCII(filename, pcl_cloud);  // Save as PCD (ASCII format)
-
-            RCLCPP_INFO(this->get_logger(), "Saved PointCloud to: %s", filename.c_str());
-            count_++;
+        // Skip processing if the point cloud is empty
+        if (pcl_cloud.points.empty()) {
+            RCLCPP_WARN(this->get_logger(), "Received empty PointCloud. Skipping.");
+            return;  // Skip processing if the point cloud is empty
         }
 
-        // Convert the PointCloud2 from ROS 2 to ROS 1 message
-        sensor_msgs::PointCloud2 ros1_msg;
-        pcl_conversions::moveFromPCL(pcl_cloud, ros1_msg);  // Conversion from PCL to ROS1 PointCloud2
+        // Generate the filename for the point cloud
+        std::string filename = "/tmp/pointclouds/pointcloud_" + std::to_string(count_) + ".pcd";
 
-        // Publish to ROS 1
-        ros1_pub_.publish(ros1_msg);
+        // Save the PointCloud to disk as PCD (ASCII format)
+        if (pcl::io::savePCDFileASCII(filename, pcl_cloud) == -1) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to save PointCloud to %s", filename.c_str());
+            return;
+        }
 
-        // Spin ROS 1 callbacks to ensure message gets published
-        ros::spinOnce();
+        RCLCPP_INFO(this->get_logger(), "Saved PointCloud to %s", filename.c_str());
+
+        // Record timestamp and the filename in the index file
+        std::stringstream ss;
+        ss << msg->header.stamp.sec << "." << msg->header.stamp.nanosec; // Full timestamp (sec.nanosec)
+        std::string timestamp = ss.str();
+
+        // Write the timestamp and the filename to the index file
+        index_file_ << timestamp << ", " << filename.substr(filename.find_last_of("/\\") + 1) << "\n"; // Extract file name
+        RCLCPP_INFO(this->get_logger(), "Recorded timestamp: %s with ID: %zu", timestamp.c_str(), count_);
+
+        count_++;
     }
 
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
-    ros::Publisher ros1_pub_;  // ROS 1 publisher
-    size_t count_;
-    std::string save_dir_; // Directory to save PCD files
+    size_t count_; // Used as the point cloud ID
+    std::ofstream index_file_; // File stream for index file
 };
 
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-
-    // Initialize ROS 1
-    ros::init(argc, argv, "pointcloud_bridge_node");
-
-    // Create and run the ROS 2 node
     rclcpp::spin(std::make_shared<PointCloudSubscriber>());
     rclcpp::shutdown();
-
     return 0;
 }

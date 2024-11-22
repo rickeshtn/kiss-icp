@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(pointcloud_bridge)
+project(pointcloud_reader_cpp)
 
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
@@ -14,29 +14,26 @@ find_package(pcl_conversions REQUIRED)
 find_package(pcl_ros REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common io)
 
-find_package(roscpp REQUIRED)  # ROS1 C++ core package
-
 include_directories(
   include
   ${PCL_INCLUDE_DIRS}
 )
 
-add_executable(pointcloud_bridge src/pointcloud_subscriber.cpp)
+add_executable(pointcloud_subscriber src/pointcloud_subscriber.cpp)
 
-ament_target_dependencies(pointcloud_bridge
+ament_target_dependencies(pointcloud_subscriber
   rclcpp
   sensor_msgs
   pcl_conversions
   pcl_ros
 )
 
-target_link_libraries(pointcloud_bridge
+target_link_libraries(pointcloud_subscriber
   ${PCL_LIBRARIES}
-  roscpp  # Link with ROS1
 )
 
 install(TARGETS
-  pointcloud_bridge
+  pointcloud_subscriber
   DESTINATION lib/${PROJECT_NAME}
 )
 
