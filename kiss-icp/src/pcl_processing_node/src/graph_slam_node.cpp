@@ -3,6 +3,8 @@
 #include "nav_msgs/msg/odometry.hpp"
 #include <pcl/point_cloud.h>
 #include <pcl/registration/icp.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/statistical_outlier_removal.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/io/pcd_io.h>
 #include <g2o/core/sparse_optimizer.h>
@@ -13,23 +15,33 @@
 #include <Eigen/Dense>
 #include <queue>
 #include <cmath>
+#include <mutex>
 
 class GraphSlamNode : public rclcpp::Node {
 public:
-    GraphSlamNode() : Node("graph_slam_node"), vertex_count_(0) {
+    GraphSlamNode() : Node("graph_slam_node"), vertex_count_(0), loop_closure_triggered_(false) {
         // Subscriptions
         radar_sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-            "/sensor/radar/front/points_filtered", 10, std::bind(&GraphSlamNode::radarCallback, this, std::placeholders::_1));
+            "/sensor/radar/front/points_filtered", 10,
+            std::bind(&GraphSlamNode::radarCallback, this, std::placeholders::_1));
         odometry_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
-            "/kiss/odometry", 10, std::bind(&GraphSlamNode::odometryCallback, this, std::placeholders::_1));
+            "/kiss/odometry", 10,
+            std::bind(&GraphSlamNode::odometryCallback, this, std::placeholders::_1));
 
         // Initialize ICP
-        icp_.setMaximumIterations(50);
-        icp_.setTransformationEpsilon(1e-8);
-        icp_.setEuclideanFitnessEpsilon(1e-8);
+        initializeICP();
 
         // Initialize the optimizer
         initializeGraphOptimizer();
+
+        // Initialize timer to check for inactivity
+        timer_ = this->create_wall_timer(
+            std::chrono::seconds(10),
+            std::bind(&GraphSlamNode::timerCallback, this));
+
+        // Initialize last_data_time_ and loop_closure_triggered_
+        last_data_time_ = this->now();
+        loop_closure_triggered_ = false;
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Graph SLAM Node Initialized");
     }
@@ -52,11 +64,28 @@ private:
     std::queue<pcl::PointCloud<pcl::PointXYZ>::Ptr> pointcloud_queue_;
 
     // Thresholds and parameters
-    const size_t MAX_QUEUE_SIZE = 100; // Adjust as needed
+    const size_t MAX_QUEUE_SIZE = 2700; // Adjust as needed
     Eigen::Isometry3d last_odometry_in_queue_ = Eigen::Isometry3d::Identity(); // Last odometry added to the queue
     Eigen::Isometry3d last_added_pose_ = Eigen::Isometry3d::Identity(); // Last pose added to the graph
 
-    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp_; // ICP for scan matching
+    // ICP for scan matching
+    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp_;
+
+    // Timer for inactivity
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Time last_data_time_;
+    bool loop_closure_triggered_;
+
+    // Mutex for thread safety (if multi-threaded spinning is used)
+    std::mutex mtx_;
+
+    void initializeICP() {
+        // Initialize ICP parameters
+        icp_.setMaximumIterations(50);
+        icp_.setTransformationEpsilon(1e-6);
+        icp_.setEuclideanFitnessEpsilon(1e-6);
+        icp_.setMaxCorrespondenceDistance(2.0); // Increased for sparse data
+    }
 
     void initializeGraphOptimizer() {
         auto linearSolver = std::make_unique<g2o::LinearSolverEigen<g2o::BlockSolver_6_3::PoseMatrixType>>();
@@ -87,6 +116,7 @@ private:
     }
 
     void odometryCallback(const nav_msgs::msg::Odometry::SharedPtr msg) {
+        std::lock_guard<std::mutex> lock(mtx_);
         RCLCPP_INFO(this->get_logger(), "[ODOM] Received odometry data.");
         RCLCPP_INFO(this->get_logger(), "[ODOM] Header: frame_id = %s, stamp = %u.%u",
                     msg->header.frame_id.c_str(),
@@ -117,18 +147,23 @@ private:
             yaw_difference = 2 * M_PI - yaw_difference; // Normalize to [0, pi]
         }
 
-        RCLCPP_INFO(this->get_logger(), "[ODOM] Movement check - Distance: %.2f, Yaw Diff: %.2f", distance, yaw_difference);
+        RCLCPP_INFO(this->get_logger(), "[ODOM] Movement check - Distance: %.2f, Yaw Diff: %.2f radians", distance, yaw_difference);
 
-        if (distance >= 1.0 || yaw_difference >= 5*0.00872665) { // 5 degrees in radians
+        if (distance >= 1.0 || yaw_difference >= 0.00872665) { // 0.5 degrees in radians
             odometry_queue_.push(current_pose);
             last_odometry_in_queue_ = current_pose;
             RCLCPP_INFO(this->get_logger(), "[ODOM] Odometry added to queue. Queue size: %lu", odometry_queue_.size());
+
+            // Update last_data_time_ and reset loop_closure_triggered_
+            last_data_time_ = this->now();
+            loop_closure_triggered_ = false;
         } else {
             RCLCPP_INFO(this->get_logger(), "[ODOM] Odometry skipped (does not meet criteria).");
         }
     }
 
     void radarCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
+        std::lock_guard<std::mutex> lock(mtx_);
         RCLCPP_INFO(this->get_logger(), "[RADAR] Received radar point cloud.");
         RCLCPP_INFO(this->get_logger(), "[RADAR] Header: frame_id = %s, stamp = %u.%u",
                     msg->header.frame_id.c_str(),
@@ -145,6 +180,10 @@ private:
 
         pointcloud_queue_.push(current_scan);
         RCLCPP_INFO(this->get_logger(), "[RADAR] Point cloud added to queue. Queue size: %lu", pointcloud_queue_.size());
+
+        // Update last_data_time_ and reset loop_closure_triggered_
+        last_data_time_ = this->now();
+        loop_closure_triggered_ = false;
 
         processSensorData();
     }
@@ -178,8 +217,7 @@ private:
         }
     }
 
-    void detectLoopClosure() 
-    {
+    void detectLoopClosure() {
         RCLCPP_INFO(this->get_logger(), "[LOOP] Starting loop closure detection...");
         Eigen::Isometry3d current_pose = pose_history_.back();
         bool loop_found = false;
@@ -188,7 +226,8 @@ private:
         const double DISTANCE_Y_THRESHOLD = 25.0; // X meters
         const double YAW_THRESHOLD = 0.0872665/2; // Y degrees (5 degrees = 0.0872665 radians)
         const double DISTANCE_Z_THREHOLD = 5;
-        for (size_t i = 0; i < pose_history_.size() - 10; ++i) { // Skip recent poses to avoid false positives
+
+        for (size_t i = 15; i < pose_history_.size(); ++i) { // Skip recent poses to avoid false positives
             double delta_y = std::abs(current_pose.translation().y() - pose_history_[i].translation().y());
             double delta_z = std::abs(current_pose.translation().z() - pose_history_[i].translation().z());
             double current_yaw = getYawFromQuaternion(Eigen::Quaterniond(current_pose.rotation()));
@@ -200,23 +239,34 @@ private:
                 yaw_difference = 2 * M_PI - yaw_difference;
             }
 
-            RCLCPP_INFO(this->get_logger(), "[LOOP] Checking pose %lu: Distance Y: %.2f,Distance Z: %.2f, Yaw Diff: %.2f radians",
+            RCLCPP_INFO(this->get_logger(), "[LOOP] Checking pose %lu: Distance: Y: %.2f,Distance Z: %.2f, Yaw Diff: %.2f radians",
                         i, delta_y,delta_z, yaw_difference);
 
             // Check if both conditions are satisfied
-            if (delta_y < DISTANCE_Y_THRESHOLD && yaw_difference < YAW_THRESHOLD && delta_z<DISTANCE_Z_THREHOLD) {
+            if (delta_y < DISTANCE_Y_THRESHOLD && yaw_difference < YAW_THRESHOLD && delta_z<DISTANCE_Z_THREHOLD)
+            {
                 RCLCPP_INFO(this->get_logger(), "[LOOP] Potential loop closure between pose %lu and %lu", i, pose_history_.size() - 1);
 
                 pcl::PointCloud<pcl::PointXYZ>::Ptr current_scan = scan_history_.back();
                 pcl::PointCloud<pcl::PointXYZ>::Ptr previous_scan = scan_history_[i];
 
-                // Perform ICP for confirmation
-                icp_.setInputSource(current_scan);
-                icp_.setInputTarget(previous_scan);
-                pcl::PointCloud<pcl::PointXYZ> aligned_scan;
-                icp_.align(aligned_scan);
+                // Preprocess scans
+                pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_current_scan(new pcl::PointCloud<pcl::PointXYZ>());
+                pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_previous_scan(new pcl::PointCloud<pcl::PointXYZ>());
 
-                if (icp_.hasConverged() && icp_.getFitnessScore() < 0.5) {
+                preprocessPointCloud(current_scan, filtered_current_scan);
+                preprocessPointCloud(previous_scan, filtered_previous_scan);
+
+                // Provide initial guess using odometry
+                Eigen::Matrix4f initial_guess = (pose_history_[i].inverse() * current_pose).matrix().cast<float>();
+
+                // Perform ICP for confirmation
+                icp_.setInputSource(filtered_current_scan);
+                icp_.setInputTarget(filtered_previous_scan);
+                pcl::PointCloud<pcl::PointXYZ> aligned_scan;
+                icp_.align(aligned_scan, initial_guess);
+
+                if (icp_.hasConverged() && icp_.getFitnessScore() < 1.0) { // Adjust fitness score threshold as needed
                     Eigen::Matrix4f correction = icp_.getFinalTransformation();
                     Eigen::Isometry3d loop_transform(correction.cast<double>());
 
@@ -242,6 +292,21 @@ private:
         }
     }
 
+    void preprocessPointCloud(const pcl::PointCloud<pcl::PointXYZ>::Ptr &input,
+                              pcl::PointCloud<pcl::PointXYZ>::Ptr &output) {
+        // Voxel Grid Downsampling
+        pcl::VoxelGrid<pcl::PointXYZ> voxel_filter;
+        voxel_filter.setLeafSize(0.5f, 0.5f, 0.5f); // Adjust leaf size as needed
+        voxel_filter.setInputCloud(input);
+        voxel_filter.filter(*output);
+
+        // Statistical Outlier Removal
+        pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+        sor.setInputCloud(output);
+        sor.setMeanK(50);
+        sor.setStddevMulThresh(1.0);
+        sor.filter(*output);
+    }
 
     void generateAndSaveCorrectedPointCloud() {
         pcl::PointCloud<pcl::PointXYZ>::Ptr global_map(new pcl::PointCloud<pcl::PointXYZ>());
@@ -286,6 +351,19 @@ private:
         RCLCPP_INFO(this->get_logger(), "[GRAPH] Edge added between vertices %d and %d", from, to);
 
         saveGraph("graph_incremental.g2o");
+    }
+
+    void timerCallback() {
+        std::lock_guard<std::mutex> lock(mtx_);
+        auto current_time = this->now();
+        auto duration = current_time - last_data_time_;
+        double duration_sec = duration.seconds();
+
+        if (duration_sec >= 60.0 && !loop_closure_triggered_ && !pose_history_.empty()) {
+            RCLCPP_INFO(this->get_logger(), "[TIMER] No data received for 60 seconds. Triggering loop closure detection.");
+            detectLoopClosure();
+            loop_closure_triggered_ = true;
+        }
     }
 };
 
