@@ -14,9 +14,20 @@ class AccumulatePointCloudNode(Node):
     def __init__(self):
         super().__init__('accumulate_pointcloud_node_global')
 
+        # Declare ROS 2 parameters
+        self.declare_parameter('distance_threshold', 10.0)  # meters
+        self.declare_parameter('reset_frequency', 0)      # Hz
+
+        # Retrieve parameter values
+        self.distance_threshold = self.get_parameter('distance_threshold').get_parameter_value().double_value
+        self.reset_frequency = self.get_parameter('reset_frequency').get_parameter_value().double_value
+
         # Subscribers for odometry and point cloud
         self.create_subscription(Odometry, '/kiss/odometry', self.odom_callback, 10)
         self.create_subscription(PointCloud2, '/sensor/radar/front/points', self.pointcloud_callback, 10)
+
+        # New Subscriber for localized_pose
+        self.create_subscription(PoseStamped, '/localized_pose', self.localized_pose_callback, 10)
 
         # Publishers for accumulated point cloud and initial pose
         self.accumulated_pcd_publisher = self.create_publisher(PointCloud2, '/accumulated_pointcloud', 10)
@@ -26,13 +37,13 @@ class AccumulatePointCloudNode(Node):
         self.odom_stack = deque()
         self.pointcloud_stack = deque()
 
+        # Variables to store pose information
         self.accumulated_points = []
         self.current_position = None
         self.current_orientation = None  # Store current orientation quaternion
         self.initial_position = None
         self.initial_orientation = None  # Store initial orientation quaternion
         self.overall_offset = np.array([0.0, 0.0, 0.0])
-        self.distance_threshold = self.declare_parameter('distance_threshold', 10.0).get_parameter_value().double_value
         self.pointcloud_directory = '/tmp_global/'
 
         # Ensure the directory exists
@@ -46,8 +57,17 @@ class AccumulatePointCloudNode(Node):
         self.accumulation_position = np.array([0.0, 0.0, 0.0])
         self.accumulation_orientation = np.array([0.0, 0.0, 0.0, 1.0])
 
-        # Store the latest odometry pose and timestamp
-        self.latest_pose = None  # Will hold PoseStamped message
+        # Store the latest localized_pose
+        self.latest_localized_pose = None
+        self.localized_pose_lock = threading.Lock()
+
+        # Create a timer to publish /initialPose at reset_frequency Hz
+        if self.reset_frequency > 0:
+            timer_period = 1.0 / self.reset_frequency  # seconds
+            self.reset_pose_timer = self.create_timer(timer_period, self.reset_initial_pose)
+            self.get_logger().info(f"Initial pose reset timer created with frequency: {self.reset_frequency} Hz")
+        else:
+            self.get_logger().warn("Reset frequency is set to 0 Hz. Initial pose will not be reset automatically.")
 
     def odom_callback(self, msg):
         self.get_logger().debug(f"Odometry message received. Stack size: {len(self.odom_stack)}")
@@ -60,6 +80,11 @@ class AccumulatePointCloudNode(Node):
         self.pointcloud_stack.append(msg)
         if len(self.odom_stack) > 5 and len(self.pointcloud_stack) > 5:
             self.match_and_accumulate()
+
+    def localized_pose_callback(self, msg):
+        self.get_logger().debug("Localized pose message received.")
+        with self.localized_pose_lock:
+            self.latest_localized_pose = msg
 
     def match_and_accumulate(self):
         self.get_logger().info("Matching and accumulating messages.")
@@ -79,15 +104,6 @@ class AccumulatePointCloudNode(Node):
         
         self.current_position = np.array([position.x, position.y, yaw])
         self.current_orientation = quaternion  # Store current orientation
-
-        # Update the latest_pose with the current PoseStamped message
-        self.latest_pose = PoseStamped()
-        self.latest_pose.header = odom_msg.header  # Preserve original timestamp and frame_id
-        self.latest_pose.pose.position = position
-        self.latest_pose.pose.orientation.x = quaternion[0]
-        self.latest_pose.pose.orientation.y = quaternion[1]
-        self.latest_pose.pose.orientation.z = quaternion[2]
-        self.latest_pose.pose.orientation.w = quaternion[3]
 
         # Set the initial position and orientation if not set
         if self.initial_position is None and self.initial_orientation is None:
@@ -226,6 +242,24 @@ class AccumulatePointCloudNode(Node):
         # Publish the initial pose
         self.initial_pose_publisher.publish(initial_pose_msg)
         self.get_logger().info("Published initial pose to /initialPose with the latest odometry pose and its original timestamp.")
+
+    def reset_initial_pose(self):
+        # Timer callback to reset /initialPose based on /localized_pose
+        self.get_logger().debug("Resetting initial pose based on /localized_pose.")
+
+        with self.localized_pose_lock:
+            if self.latest_localized_pose is None:
+                self.get_logger().warn("No localized pose received yet. Skipping initial pose reset.")
+                return
+
+            # Create a new PoseStamped message based on the latest_localized_pose
+            initial_pose_msg = PoseStamped()
+            initial_pose_msg.header = self.latest_localized_pose.header  # Preserve original timestamp and frame_id
+            initial_pose_msg.pose = self.latest_localized_pose.pose
+
+        # Publish the initial pose
+        self.initial_pose_publisher.publish(initial_pose_msg)
+        self.get_logger().info(f"Reset /initialPose based on /localized_pose with timestamp: {initial_pose_msg.header.stamp.sec}")
 
 def main(args=None):
     rclpy.init(args=args)
