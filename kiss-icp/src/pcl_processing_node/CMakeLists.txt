@@ -101,6 +101,7 @@ target_link_libraries(graph_slam_nodePC
   g2o_stuff
   g2o_types_slam2d
   g2o_types_slam3d   
+  g2o_solver_eigen
 )
 
 # Install the executable
