@@ -1,0 +1,120 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+- Class: rviz_common/Time
+  Name: Time
+- Class: rviz_common/Views
+  Name: Views
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 1
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160;160;160
+      Enabled: true
+      Line Style: Lines
+      Name: Grid
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Reference Frame: <Fixed Frame>
+      Value: 0
+    - Alpha: 1
+      Class: rviz_default_plugins/TF
+      Enabled: true
+      Marker Scale: 1
+      Name: TF
+      Show Axes: true
+      Show Names: true
+      Update Interval: 0
+    - Alpha: 1
+      Class: rviz_default_plugins/PointCloud2
+      Enabled: true
+      Name: Map
+      Point Cloud2 Transformer: XYZ
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Points
+      Topic: /map
+      Unreliable: false
+      Use Auto Size: false
+    - Alpha: 1
+      Class: rviz_default_plugins/PointCloud2
+      Enabled: true
+      Name: Local Map
+      Point Cloud2 Transformer: XYZ
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Points
+      Topic: /kiss/local_map
+      Unreliable: false
+      Use Auto Size: false
+    - Arrow Length: 1
+      Class: rviz_default_plugins/Odometry
+      Enabled: true
+      Keep: 1
+      Name: Localized Pose
+      Position Tolerance: 0
+      Topic: /localized_pose
+      Twist Arrow Color: 255;25;0
+      Twist Arrow Shaft Radius: 0.1
+      Twist Arrow Head Radius: 0.2
+      Twist Arrow Head Length: 0.3
+      Unreliable: false
+      Velocity Scaling Factor: 1
+    - Arrow Length: 1
+      Class: rviz_default_plugins/Odometry
+      Enabled: true
+      Keep: 1
+      Name: Odometry
+      Position Tolerance: 0
+      Topic: /kiss/odometry
+      Twist Arrow Color: 25;255;0
+      Twist Arrow Shaft Radius: 0.1
+      Twist Arrow Head Radius: 0.2
+      Twist Arrow Head Length: 0.3
+      Unreliable: false
+      Velocity Scaling Factor: 1
+  Enabled: true
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+      Name: Interact
+    - Class: rviz_default_plugins/MoveCamera
+      Name: Move Camera
+    - Class: rviz_default_plugins/Select
+      Name: Select
+    - Class: rviz_default_plugins/FocusCamera
+      Name: Focus Camera
+    - Class: rviz_default_plugins/Measure
+      Name: Measure
+    - Class: rviz_default_plugins/SetInitialPose
+      Name: 2D Pose Estimate
+    - Class: rviz_default_plugins/SetGoal
+      Name: 2D Nav Goal
+    - Class: rviz_default_plugins/PublishPoint
+      Name: Publish Point
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 50
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Orbit
+      Pitch: 0.785
+      Target Frame: map
+      Value: Orbit
+      Yaw: 0.785
+  add_display: true
+
